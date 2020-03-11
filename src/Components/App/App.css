@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css?family=Bitter&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Bitter", serif;
+  color: white;
+  background-color: rgb(25, 65, 61);
+  display: grid;
+  padding-bottom: 2rem;
+}
+
+.header {
+  padding-top: 0.25rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;  
+}
+
+.checkbox-wrapper {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  justify-content: center;
+}
+
+.logo {
+  height: 70px;
+  width: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.rating-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+}
+
+.movie-list {
+  display: grid;
+  text-align: center;
+  list-style-type: none;
+  text-align: center;
+  grid-gap: 50px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
+  justify-content: center;
+}
+
+.movie-list-items-wrapper {
+  padding: 10px;
+  display: grid;
+  border-radius: 3%;
+  border: solid darkblue 3px;
+  background-color: black;
+}
+
+.movie-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #01d277;
+}
+
+.movie-img {
+    height: 200px;
+    width: auto;
+}
+
+.movie-genre {
+  color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
