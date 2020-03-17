@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 
 function GenreTickbox(props) {
@@ -14,7 +14,7 @@ function GenreTickbox(props) {
     return props.genres.map(genre => {
         return (
             <div key={genre.id}>
-                <label className="pointer">
+                <label className="pointer checkbox-label">
                     <input
                         className="pointer" 
                         type="checkbox" 

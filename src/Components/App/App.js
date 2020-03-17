@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import "./App.css";
 import Header from "../Header/Header";
 import GenreTickbox from "../GenreTickbox/GenreTickbox";
-import RatingInput from "../RatingInput/RatingInput";
+import RangeInput from "../RangeInput/RangeInput";
+import "react-input-range/lib/css/index.css";
 
 const idKey = "f450619cfd627e04628610fdf07f671a";
 const baseUrl = "https://api.themoviedb.org/3/";
@@ -15,7 +16,8 @@ class App extends Component {
       movies: null,
       genres: [],
       checkedGenres: [],
-      rating: "3"
+      rating: "3",
+      value: 3
     };
     this.renderMovies = this.renderMovies.bind(this);
     this.renderGenres = this.renderGenres.bind(this);
@@ -70,7 +72,11 @@ class App extends Component {
             <div key={movie.id} className="movie-list-items-wrapper">
               <li>
                 <div>
-                  <img className="movie-img" src={`${imgUrl}${movie.poster_path}`} alt="poster"></img>
+                  <img
+                    className="movie-img"
+                    src={`${imgUrl}${movie.poster_path}`}
+                    alt="poster"
+                  ></img>
                 </div>
                 <div className="movie-title">{movie.title}</div>
                 <hr />
@@ -89,7 +95,11 @@ class App extends Component {
             <div key={movie.id} className="movie-list-items-wrapper">
               <li>
                 <div>
-                  <img className="movie-img" src={`${imgUrl}${movie.poster_path}`} alt="poster"></img>
+                  <img
+                    className="movie-img"
+                    src={`${imgUrl}${movie.poster_path}`}
+                    alt="poster"
+                  ></img>
                 </div>
                 <div className="movie-title">{movie.title}</div>
                 <hr></hr>
@@ -105,6 +115,7 @@ class App extends Component {
 
   renderGenres = (genres, genre_ids = []) => {
     return genres.map(genre => {
+      // eslint-disable-next-line array-callback-return
       return genre_ids.map(id => {
         if (id === genre.id) {
           return <p key={genre.id}>{genre.name}</p>;
@@ -123,8 +134,8 @@ class App extends Component {
       : this.setState({ checkedGenres: [...this.state.checkedGenres, id] });
   };
 
-  handleChange(event) {
-    this.setState({ rating: event.target.value });
+  handleChange(rating) {
+    this.setState({ rating });
   }
 
   render() {
@@ -138,10 +149,7 @@ class App extends Component {
             check={this.checkGenre}
           />
         </ul>
-        <RatingInput
-          ratingValue={this.state.rating}
-          handleRating={this.handleChange}
-        />
+        <RangeInput value={this.state.rating} onDrag={this.handleChange} />
         <ul className="movie-list">
           {this.state.movies && this.renderMovies(this.state.movies)}
         </ul>

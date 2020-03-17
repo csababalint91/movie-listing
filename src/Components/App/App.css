@@ -10,7 +10,6 @@ body {
   font-family: "Bitter", serif;
   color: white;
   background-color: rgb(25, 65, 61);
-  display: grid;
   padding-bottom: 2rem;
 }
 
@@ -22,12 +21,19 @@ body {
 }
 
 .checkbox-wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  margin-top: 1rem;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  margin-top: 1rem;
-  margin-left: 0.5rem;
+}
+
+.checkbox-label {
+  display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .logo {
@@ -37,19 +43,22 @@ body {
   margin-right: 1rem;
 }
 
-.rating-input-wrapper {
+.range-input-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 50px auto 50px auto;
+  width: 50%;
+}
+
+.range-input-wrapper > :nth-child(2) {
+  margin-top: 1rem;
 }
 
 .movie-list {
   display: grid;
   text-align: center;
   list-style-type: none;
-  text-align: center;
   grid-gap: 50px;
   grid-template-columns: repeat(auto-fill, minmax(150px, 200px));
   justify-content: center;
@@ -57,7 +66,6 @@ body {
 
 .movie-list-items-wrapper {
   padding: 10px;
-  display: grid;
   border-radius: 3%;
   border: solid darkblue 3px;
   background-color: black;
@@ -76,8 +84,10 @@ body {
 
 .movie-genre {
   color: white;
+  padding: 5%;
 }
 
 .pointer {
   cursor: pointer;
 }
+
